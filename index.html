@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="خطة تمارين عضلية لمدة 6 أسابيع للرجال مع صور وفيديوهات توضيحية">
+    <meta name="description" content="خطة تمارين عضلية لمدة 6 أسابيع للرجال مع صور وفيديوهات دقيقة">
     <title>خطة بناء عضلي لمدة 6 أسابيع</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,135 +14,168 @@
     <style>
         body {
             font-family: 'Noto Sans Arabic', sans-serif;
-            background-color: #f1f5f9;
-            color: #1e293b;
+            background-color: #111827;
+            color: #e5e7eb;
             direction: rtl;
         }
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/416717/pexels-photo-416717.jpeg');
             background-size: cover;
             background-position: center;
         }
         .workout-card {
-            transition: transform 0.2s;
+            transition: transform 0.2s ease-in-out;
         }
         @media (hover: hover) {
             .workout-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                transform: scale(1.02);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             }
         }
         .modal-img {
             max-width: 100%;
-            height: auto;
+            max-height: 100px;
+            object-fit: cover;
             border-radius: 8px;
         }
-        .nutrition-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+        .modal-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
         }
-        .nutrition-card {
-            flex: 0 0 80%;
-            scroll-snap-align: start;
+        .navbar {
+            transition: all 0.3s ease;
         }
-        @media (min-width: 640px) {
-            .nutrition-carousel {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
+        .hamburger-menu {
+            display: none;
+        }
+        @media (max-width: 640px) {
+            .navbar-links {
+                display: none;
             }
-            .nutrition-card {
-                flex: none;
+            .navbar-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                right: 0;
+                background-color: #1f2937;
+                width: 100%;
+                padding: 1rem;
+            }
+            .hamburger-menu {
+                display: block;
+            }
+            .hero {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            .modal-img {
+                max-height: 80px;
+            }
+            .modal-video {
+                max-height: 150px;
+            }
+            .progress-table {
+                display: none;
+            }
+            .progress-cards {
+                display: block;
+            }
+        }
+        @media (min-width: 641px) {
+            .progress-table {
+                display: table;
+            }
+            .progress-cards {
+                display: none;
             }
         }
     </style>
 </head>
 <body class="antialiased">
     <!-- Navigation -->
-    <nav class="bg-indigo-900 text-white py-4 sticky-nav">
+    <nav class="navbar bg-gray-800 text-white py-4 fixed top-0 w-full z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold">نبض اللياقة</a>
-            <div class="space-x-4 space-x-reverse">
-                <a href="#home" class="hover:text-indigo-300">الرئيسية</a>
-                <a href="#workouts" class="hover:text-indigo-300">التمارين</a>
-                <a href="#progress" class="hover:text-indigo-300">تتبع التقدم</a>
-                <a href="#nutrition" class="hover:text-indigo-300">التغذية</a>
+            <button class="hamburger-menu text-2xl focus:outline-none sm:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-links flex space-x-4 space-x-reverse sm:flex">
+                <a href="#home" class="hover:text-teal-400">الرئيسية</a>
+                <a href="#workouts" class="hover:text-teal-400">التمارين</a>
+                <a href="#progress" class="hover:text-teal-400">تتبع التقدم</a>
+                <a href="#nutrition" class="hover:text-teal-400">التغذية</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero py-16 md:py-24 text-center text-white">
+    <section id="home" class="hero py-12 sm:py-16 text-center text-white">
         <div class="container mx-auto px-4">
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">خطة بناء عضلي لمدة 6 أسابيع</h1>
-            <p class="text-base sm:text-lg mb-6">تقسيم دفع/سحب/أرجل للرجال (65 كجم)</p>
-            <a href="#workouts" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700">ابدأ التمرين</a>
+            <h1 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">خطة بناء عضلي لمدة 6 أسابيع</h1>
+            <p class="text-sm sm:text-base mb-6">تقسيم دفع/سحب/أرجل للرجال (65 كجم)</p>
+            <a href="#workouts" class="inline-block bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 text-sm sm:text-base">ابدأ التمرين</a>
         </div>
     </section>
 
     <!-- Workouts Section -->
-    <section id="workouts" class="py-12 bg-white">
+    <section id="workouts" class="py-12 bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-6">خطة التمارين</h2>
-            <p class="text-center mb-8">تمرن 4-6 أيام أسبوعيًا. انقر على التمارين للتفاصيل.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-center mb-6">خطة التمارين</h2>
+            <p class="text-center mb-8 text-sm sm:text-base">تمرن 4-6 أيام أسبوعيًا. انقر على التمارين للتفاصيل.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <!-- Push Workout -->
-                <div class="workout-card bg-gray-100 rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم الدفع</h3>
+                <div class="workout-card bg-gray-800 rounded-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-semibold text-teal-400 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم الدفع</h3>
                     <ul class="space-y-2">
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="flat-dumbbell-press" data-modal-target="exerciseModal">ضغط الدمبل المسطح: 3 مجموعات × 8-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="flat-dumbbell-press" data-modal-target="exerciseModal">ضغط الدمبل المسطح: 3 مجموعات × 8-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="incline-barbell-press" data-modal-target="exerciseModal">ضغط البار المائل: 3 مجموعات × 8-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="incline-barbell-press" data-modal-target="exerciseModal">ضغط البار المائل: 3 مجموعات × 8-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="dumbbell-lateral-raise" data-modal-target="exerciseModal">رفع الدمبل الجانبي: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="dumbbell-lateral-raise" data-modal-target="exerciseModal">رفع الدمبل الجانبي: 2 مجموعات × 10-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="overhead-tricep-extension" data-modal-target="exerciseModal">تمديد الترايسبس العلوي: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="overhead-tricep-extension" data-modal-target="exerciseModal">تمديد الترايسبس العلوي: 2 مجموعات × 10-12</button>
                         </li>
                     </ul>
                 </div>
                 <!-- Pull Workout -->
-                <div class="workout-card bg-gray-100 rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم السحب</h3>
+                <div class="workout-card bg-gray-800 rounded-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-semibold text-teal-400 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم السحب</h3>
                     <ul class="space-y-2">
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="pull-ups" data-modal-target="exerciseModal">سحب على البار: 3 مجموعات × 6-10</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="pull-ups" data-modal-target="exerciseModal">سحب على البار: 3 مجموعات × 6-10</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="bent-over-dumbbell-row" data-modal-target="exerciseModal">تجديف الدمبل المنحني: 3 مجموعات × 8-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="bent-over-dumbbell-row" data-modal-target="exerciseModal">تجديف الدمبل المنحني: 3 مجموعات × 8-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="seated-cable-row" data-modal-target="exerciseModal">تجديف الكابل الجالس: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="seated-cable-row" data-modal-target="exerciseModal">تجديف الكابل الجالس: 2 مجموعات × 10-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="barbell-curl" data-modal-target="exerciseModal">ثني البار: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="barbell-curl" data-modal-target="exerciseModal">ثني البار: 2 مجموعات × 10-12</button>
                         </li>
                     </ul>
                 </div>
                 <!-- Legs Workout -->
-                <div class="workout-card bg-gray-100 rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-indigo-700 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم الأرجل</h3>
+                <div class="workout-card bg-gray-800 rounded-lg p-4 sm:p-6">
+                    <h3 class="text-lg sm:text-xl font-semibold text-teal-400 mb-4"><i class="fas fa-dumbbell mr-2"></i>يوم الأرجل</h3>
                     <ul class="space-y-2">
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="smith-machine-squats" data-modal-target="exerciseModal">قرفصاء آلة سميث: 3 مجموعات × 8-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="smith-machine-squats" data-modal-target="exerciseModal">قرفصاء آلة سميث: 3 مجموعات × 8-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="leg-extension" data-modal-target="exerciseModal">تمديد الأرجل: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="leg-extension" data-modal-target="exerciseModal">تمديد الأرجل: 2 مجموعات × 10-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="lying-leg-curl" data-modal-target="exerciseModal">ثني الأرجل مستلقيًا: 2 مجموعات × 10-12</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="lying-leg-curl" data-modal-target="exerciseModal">ثني الأرجل مستلقيًا: 2 مجموعات × 10-12</button>
                         </li>
-                        <li class="p-2 hover:bg-gray-200 rounded">
-                            <button class="w-full text-right" data-exercise="standing-calf-raise" data-modal-target="exerciseModal">رفع الساق الدائم: 2 مجموعات × 12-15</button>
+                        <li class="p-2 bg-gray-700 rounded">
+                            <button class="w-full text-right text-sm sm:text-base" data-exercise="standing-calf-raise" data-modal-target="exerciseModal">رفع الساق الدائم: 2 مجموعات × 12-15</button>
                         </li>
                     </ul>
                 </div>
@@ -151,13 +184,13 @@
     </section>
 
     <!-- Progress Tracker -->
-    <section id="progress" class="py-12 bg-gray-100">
+    <section id="progress" class="py-12 bg-gray-800">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-6">تتبع تقدمك</h2>
-            <p class="text-center mb-8">سجل الأوزان والتكرارات لمراقبة مكاسبك.</p>
-            <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl sm:text-2xl font-bold text-center mb-6">تتبع تقدمك</h2>
+            <p class="text-center mb-8 text-sm sm:text-base">سجل الأوزان والتكرارات لمراقبة مكاسبك.</p>
+            <div class="max-w-md mx-auto bg-gray-700 p-4 sm:p-6 rounded-lg">
                 <form id="progressForm" class="space-y-4">
-                    <select id="exerciseSelect" class="w-full p-2 border rounded">
+                    <select id="exerciseSelect" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base">
                         <option value="flat-dumbbell-press">ضغط الدمبل المسطح</option>
                         <option value="incline-barbell-press">ضغط البار المائل</option>
                         <option value="dumbbell-lateral-raise">رفع الدمبل الجانبي</option>
@@ -171,71 +204,83 @@
                         <option value="lying-leg-curl">ثني الأرجل مستلقيًا</option>
                         <option value="standing-calf-raise">رفع الساق الدائم</option>
                     </select>
-                    <input type="number" id="weekInput" class="w-full p-2 border rounded" placeholder="الأسبوع" min="1" max="6">
-                    <input type="number" id="weightInput" class="w-full p-2 border rounded" placeholder="الوزن (كجم)" step="0.5">
-                    <input type="number" id="repsInput" class="w-full p-2 border rounded" placeholder="التكرارات" min="1">
-                    <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">إضافة سجل</button>
+                    <input type="number" id="weekInput" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base" placeholder="الأسبوع" min="1" max="6">
+                    <input type="number" id="weightInput" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base" placeholder="الوزن (كجم)" step="0.5">
+                    <input type="number" id="repsInput" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base" placeholder="التكرارات" min="1">
+                    <button type="submit" class="w-full bg-teal-600 text-white py-2 rounded hover:bg-teal-700 text-sm sm:text-base">إضافة سجل</button>
                 </form>
             </div>
-            <div class="mt-8 overflow-x-auto">
-                <table class="w-full bg-white shadow-md rounded-lg">
-                    <thead class="bg-indigo-900 text-white">
+            <div class="mt-8">
+                <!-- Desktop Table -->
+                <table class="progress-table w-full bg-gray-700 rounded-lg text-sm sm:text-base">
+                    <thead class="bg-teal-600 text-white">
                         <tr>
-                            <th class="p-3">التمرين</th>
-                            <th class="p-3">الأسبوع</th>
-                            <th class="p-3">الوزن (كجم)</th>
-                            <th class="p-3">التكرارات</th>
-                            <th class="p-3">إجراء</th>
+                            <th class="p-2 sm:p-3">التمرين</th>
+                            <th class="p-2 sm:p-3">الأسبوع</th>
+                            <th class="p-2 sm:p-3">الوزن (كجم)</th>
+                            <th class="p-2 sm:p-3">التكرارات</th>
+                            <th class="p-2 sm:p-3">إجراء</th>
                         </tr>
                     </thead>
                     <tbody id="progressTable"></tbody>
                 </table>
+                <!-- Mobile Cards -->
+                <div class="progress-cards space-y-4">
+                    <div id="progressCards"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Nutrition Section -->
-    <section id="nutrition" class="py-12 bg-white">
+    <section id="nutrition" class="py-12 bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-6">نصائح التغذية</h2>
-            <div class="nutrition-carousel mx-[-1rem] px-4 sm:mx-0">
-                <div class="nutrition-card bg-gray-100 p-4 m-2 rounded-lg">
-                    <h3 class="text-lg font-semibold mb-2">تناول البروتين</h3>
-                    <p>استهلك 104-143 جم من البروتين يوميًا (1.6-2.2 جم/كجم). المصادر: الدجاج، البيض، التوفو، مخفوقات البروتين.</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-center mb-6">نصائح التغذية</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h3 class="text-base sm:text-lg font-semibold text-teal-400 mb-2">تناول البروتين</h3>
+                    <p class="text-sm sm:text-base">استهلك 104-143 جم من البروتين يوميًا (1.6-2.2 جم/كجم). المصادر: الدجاج، البيض، التوفو، مخفوقات البروتين.</p>
                 </div>
-                <div class="nutrition-card bg-gray-100 p-4 m-2 rounded-lg">
-                    <h3 class="text-lg font-semibold mb-2">فائض السعرات</h3>
-                    <p>تناول 300-500 سعرة حرارية فوق الصيانة. استخدم حاسبة TDEE لتقدير الاحتياجات.</p>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h3 class="text-base sm:text-lg font-semibold text-teal-400 mb-2">فائض السعرات</h3>
+                    <p class="text-sm sm:text-base">تناول 300-500 سعرة حرارية فوق الصيانة. استخدم حاسبة TDEE لتقدير الاحتياجات.</p>
                 </div>
-                <div class="nutrition-card bg-gray-100 p-4 m-2 rounded-lg">
-                    <h3 class="text-lg font-semibold mb-2">النوم والتعافي</h3>
-                    <p>استهدف 7-9 ساعات من النوم ليليًا لتحسين إصلاح العضلات ونموها.</p>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h3 class="text-base sm:text-lg font-semibold text-teal-400 mb-2">النوم والتعافي</h3>
+                    <p class="text-sm sm:text-base">استهدف 7-9 ساعات من النوم ليليًا لتحسين إصلاح العضلات ونموها.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Exercise Modal -->
-    <div id="exerciseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-6 w-11/12 sm:w-3/4 md:w-1/2 max-h-[90vh] overflow-y-auto">
+    <div id="exerciseModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+        <div class="bg-gray-800 text-white rounded-lg p-4 sm:p-6 w-11/12 sm:w-3/4 md:w-1/2 max-h-[85vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-4">
-                <h3 id="exerciseModalLabel" class="text-xl font-bold">تفاصيل التمرين</h3>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700"><i class="fas fa-times"></i></button>
+                <h3 id="exerciseModalLabel" class="text-base sm:text-lg font-bold">تفاصيل التمرين</h3>
+                <button id="closeModal" class="text-gray-400 hover:text-white"><i class="fas fa-times text-lg"></i></button>
             </div>
-            <img id="exerciseImage" class="modal-img mb-4" src="" alt="Exercise Image" onerror="this.src='https://via.placeholder.com/300x150?text=Image+Not+Found';">
-            <h4 id="exerciseName" class="text-lg font-semibold mb-2"></h4>
-            <p id="exerciseDescription" class="mb-2"></p>
-            <p id="exerciseMuscles" class="mb-2"></p>
-            <p id="exerciseAlternative" class="mb-2"></p>
-            <p><a id="exerciseVideoLink" href="" target="_blank" class="text-indigo-600 hover:underline">مشاهدة البرنامج التعليمي</a></p>
+            <img id="exerciseImage" class="modal-img mb-4" src="" alt="Exercise Image" onerror="this.src='https://via.placeholder.com/300x100?text=صورة+غير+متوفرة';">
+            <iframe id="exerciseVideo" class="modal-video mb-4 hidden" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p id="exerciseVideoFallback" class="mb-4"><a id="exerciseVideoLink" href="" target="_blank" class="text-teal-400 hover:underline">مشاهدة البرنامج التعليمي</a></p>
+            <h4 id="exerciseName" class="text-base sm:text-lg font-semibold mb-2"></h4>
+            <p id="exerciseDescription" class="text-sm sm:text-base mb-2"></p>
+            <p id="exerciseMuscles" class="text-sm sm:text-base mb-2"></p>
+            <p id="exerciseAlternative" class="text-sm sm:text-base mb-2"></p>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-indigo-900 text-white py-6 text-center">
+    <footer class="bg-gray-800 text-white py-6 text-center sticky bottom-0">
         <div class="container mx-auto px-4">
-            <p>© 2025 نبض اللياقة. جميع الحقوق محفوظة.</p>
-            <p>مصمم لعشاق بناء العضلات.</p>
+            <p class="text-sm">© 2025 نبض اللياقة. جميع الحقوق محفوظة.</p>
+            <p class="text-sm">مصمم لعشاق بناء العضلات.</p>
+            <div class="mt-2 space-x-4 space-x-reverse">
+                <a href="#home" class="hover:text-teal-400 text-sm">الرئيسية</a>
+                <a href="#workouts" class="hover:text-teal-400 text-sm">التمارين</a>
+                <a href="#progress" class="hover:text-teal-400 text-sm">تتبع التقدم</a>
+                <a href="#nutrition" class="hover:text-teal-400 text-sm">التغذية</a>
+            </div>
         </div>
     </footer>
 
@@ -247,7 +292,7 @@
                 description: 'استلق على مقعد مسطح، امسك دمبل في كل يد عند مستوى الصدر، واضغط للأعلى حتى تمتد الذراعان. أنزل ببطء.',
                 muscles: 'الصدر، الترايسبس، الأكتاف',
                 alternative: 'ضغط البار أو تمارين الضغط',
-                image: 'https://images.unsplash.com/photo-1581009146145-b5ef3b632e0e',
+                image: 'https://images.pexels.com/photos/7672107/pexels-photo-7672107.jpeg',
                 video: 'https://www.youtube.com/watch?v=VmB1G1K7v94'
             },
             'incline-barbell-press': {
@@ -255,7 +300,7 @@
                 description: 'استلق على مقعد مائل، اضغط البار من الصدر إلى التمدد الكامل. أنزل ببطء.',
                 muscles: 'الصدر العلوي، الترايسبس، الأكتاف',
                 alternative: 'ضغط الدمبل المائل',
-                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b',
+                image: 'https://images.pexels.com/photos/3837440/pexels-photo-3837440.jpeg',
                 video: 'https://www.youtube.com/watch?v=SrqOu55lrYU'
             },
             'dumbbell-lateral-raise': {
@@ -263,7 +308,7 @@
                 description: 'قف مع دمبل على الجانبين، ارفع إلى ارتفاع الكتف مع ثني خفيف في المرفقين، ثم أنزل.',
                 muscles: 'الأكتاف',
                 alternative: 'رفع الكابل الجانبي',
-                image: 'https://images.unsplash.com/photo-1517134191118-9d5953334c93',
+                image: 'https://images.pexels.com/photos/6552688/pexels-photo-6552688.jpeg',
                 video: 'https://www.youtube.com/watch?v=3VcKaXpzqRo'
             },
             'overhead-tricep-extension': {
@@ -271,7 +316,7 @@
                 description: 'امسك دمبل فوق الرأس بكلتا اليدين، أنزل خلف الرأس، ثم مد الذراعين.',
                 muscles: 'الترايسبس',
                 alternative: 'ضغط الترايسبس بالكابل',
-                image: 'https://images.unsplash.com/photo-1597452485669-2c7b389383ff',
+                image: 'https://images.pexels.com/photos/7672110/pexels-photo-7672110.jpeg',
                 video: 'https://www.youtube.com/watch?v=-Vyt2QjeM4g'
             },
             'pull-ups': {
@@ -279,7 +324,7 @@
                 description: 'تعلق على البار، اسحب جسمك حتى تصبح الذقن فوق البار، أنزل ببطء. استخدم شريط أو آلة للمساعدة.',
                 muscles: 'اللاتس، البايسبس، الرومبويد',
                 alternative: 'تجديف مقلوب',
-                image: 'https://images.unsplash.com/photo-1534367507873-d2d3946b973e',
+                image: 'https://images.pexels.com/photos/6550306/pexels-photo-6550306.jpeg',
                 video: 'https://www.youtube.com/watch?v=eGo4IYlbE5g'
             },
             'bent-over-dumbbell-row': {
@@ -287,7 +332,7 @@
                 description: 'انحن عند الوركين، اسحب الدمبل نحو الوركين، مع ضغط لوحي الكتف. حافظ على استقامة الظهر.',
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف الدمبل بذراع واحدة',
-                image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd',
+                image: 'https://images.pexels.com/photos/6552689/pexels-photo-6552689.jpeg',
                 video: 'https://www.youtube.com/watch?v=pa5X7Kdozo8'
             },
             'seated-cable-row': {
@@ -295,7 +340,7 @@
                 description: 'اجلس عند آلة الكابل، اسحب المقبض نحو الأضلاع السفلية، مع ضغط لوحي الكتف.',
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف منحني بالدمبل',
-                image: 'https://images.unsplash.com/photo-1605296867424-35fc25bf7c5e',
+                image: 'https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg',
                 video: 'https://www.youtube.com/watch?v=GZbfZ033f74'
             },
             'barbell-curl': {
@@ -303,7 +348,7 @@
                 description: 'قف ممسكًا بالبار، اثنِ نحو الصدر، مع إبقاء المرفقين قريبين من الجسم.',
                 muscles: 'البايسبس',
                 alternative: 'ثني الدمبل',
-                image: 'https://images.unsplash.com/photo-1581009137042-c552e485697a',
+                image: 'https://images.pexels.com/photos/7672108/pexels-photo-7672108.jpeg',
                 video: 'https://www.youtube.com/watch?v=kwG2ipFRgfo'
             },
             'smith-machine-squats': {
@@ -311,7 +356,7 @@
                 description: 'قف تحت بار آلة سميث، انخفض حتى تصبح الفخذان موازية للأرض، ثم ادفع للأعلى.',
                 muscles: 'الفخذ الأمامي، الأرداف، أوتار الركبة',
                 alternative: 'قرفصاء الكأس',
-                image: 'https://images.unsplash.com/photo-1526406915894-7bcd65f60845',
+                image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg',
                 video: 'https://www.youtube.com/watch?v=9xhiaLYVjuA'
             },
             'leg-extension': {
@@ -319,7 +364,7 @@
                 description: 'اجلس على آلة تمديد الأرجل، مد الساقين حتى تستقيم، ثم أنزل ببطء.',
                 muscles: 'الفخذ الأمامي',
                 alternative: 'قرفصاء بلغاري منفصل',
-                image: 'https://images.unsplash.com/photo-1549576490-b0b4831b60a9',
+                image: 'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg',
                 video: 'https://www.youtube.com/watch?v=YyvSfVjQeL0'
             },
             'lying-leg-curl': {
@@ -327,7 +372,7 @@
                 description: 'استلق وجهًا للأسفل على آلة ثني الأرجل، اثنِ الكعبين نحو الأرداف، ثم أنزل ببطء.',
                 muscles: 'أوتار الركبة',
                 alternative: 'رفع الأرداف والركبة',
-                image: 'https://images.unsplash.com/photo-1519505907962-0d6c88a3eb6e',
+                image: 'https://images.pexels.com/photos/416776/pexels-photo-416776.jpeg',
                 video: 'https://www.youtube.com/watch?v=e6FrW2sdY7Q'
             },
             'standing-calf-raise': {
@@ -335,15 +380,24 @@
                 description: 'قف على آلة رفع الساق أو درجة، ارفع الكعبين عاليًا، ثم أنزل ببطء.',
                 muscles: 'الساق',
                 alternative: 'رفع الساق الجالس',
-                image: 'https://images.unsplash.com/photo-1557330359-30b6d36a39eb',
+                image: 'https://images.pexels.com/photos/416759/pexels-photo-416759.jpeg',
                 video: 'https://www.youtube.com/watch?v=3Xg0Qnk66v0'
             }
         };
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.navbar-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
         // Modal Handling
         const modal = document.getElementById('exerciseModal');
         const closeModalBtn = document.getElementById('closeModal');
         const exerciseButtons = document.querySelectorAll('[data-modal-target="exerciseModal"]');
+        const videoIframe = document.getElementById('exerciseVideo');
+        const videoFallback = document.getElementById('exerciseVideoFallback');
 
         exerciseButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -356,7 +410,19 @@
                     document.getElementById('exerciseMuscles').textContent = 'العضلات: ' + exercise.muscles;
                     document.getElementById('exerciseAlternative').textContent = 'البديل: ' + exercise.alternative;
                     document.getElementById('exerciseImage').src = exercise.image;
-                    document.getElementById('exerciseVideoLink').href = exercise.video;
+
+                    // Embed YouTube video
+                    const videoId = exercise.video.split('v=')[1]?.split('&')[0];
+                    if (videoId) {
+                        videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                        videoIframe.classList.remove('hidden');
+                        videoFallback.classList.add('hidden');
+                    } else {
+                        videoIframe.classList.add('hidden');
+                        videoFallback.classList.remove('hidden');
+                        document.getElementById('exerciseVideoLink').href = exercise.video;
+                    }
+
                     modal.classList.remove('hidden');
                 } else {
                     console.error('Exercise not found:', exerciseId); // Debug log
@@ -366,31 +432,50 @@
 
         closeModalBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
+            videoIframe.src = ''; // Stop video
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.add('hidden');
+                videoIframe.src = ''; // Stop video
             }
         });
 
         // Progress Tracker
         const progressForm = document.getElementById('progressForm');
         const progressTable = document.getElementById('progressTable');
+        const progressCards = document.getElementById('progressCards');
         let progressData = JSON.parse(localStorage.getItem('progressData')) || [];
 
         function renderProgress() {
+            // Desktop Table
             progressTable.innerHTML = '';
             progressData.forEach((entry, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="p-3">${entry.exercise}</td>
-                    <td class="p-3">${entry.week}</td>
-                    <td class="p-3">${entry.weight}</td>
-                    <td class="p-3">${entry.reps}</td>
-                    <td class="p-3"><button class="bg-red-600 text-white py-1 px-2 rounded hover:bg-red-700" onclick="deleteEntry(${index})">حذف</button></td>
+                    <td class="p-2 sm:p-3">${entry.exercise}</td>
+                    <td class="p-2 sm:p-3">${entry.week}</td>
+                    <td class="p-2 sm:p-3">${entry.weight}</td>
+                    <td class="p-2 sm:p-3">${entry.reps}</td>
+                    <td class="p-2 sm:p-3"><button class="bg-red-600 text-white py-1 px-2 rounded hover:bg-red-700 text-sm" onclick="deleteEntry(${index})">حذف</button></td>
                 `;
                 progressTable.appendChild(row);
+            });
+
+            // Mobile Cards
+            progressCards.innerHTML = '';
+            progressData.forEach((entry, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-gray-700 p-4 rounded-lg';
+                card.innerHTML = `
+                    <p class="text-sm"><strong>التمرين:</strong> ${entry.exercise}</p>
+                    <p class="text-sm"><strong>الأسبوع:</strong> ${entry.week}</p>
+                    <p class="text-sm"><strong>الوزن:</strong> ${entry.weight} كجم</p>
+                    <p class="text-sm"><strong>التكرارات:</strong> ${entry.reps}</p>
+                    <button class="bg-red-600 text-white py-1 px-2 rounded hover:bg-red-700 text-sm mt-2" onclick="deleteEntry(${index})">حذف</button>
+                `;
+                progressCards.appendChild(card);
             });
         }
 
