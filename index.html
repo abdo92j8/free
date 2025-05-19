@@ -1,6 +1,4 @@
-fix (index):64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
-(anonymous) @ (index):64
-ayman-fit.vercel.app/:470 Uncaught SyntaxError: Unexpected token '<' in : <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -51,8 +49,6 @@ ayman-fit.vercel.app/:470 Uncaught SyntaxError: Unexpected token '<' in : <!DOCT
         .hamburger-menu {
             display: none;
         }
-        
-        /* Improved mobile navbar styles */
         @media (max-width: 640px) {
             .navbar-links {
                 display: none;
@@ -66,24 +62,12 @@ ayman-fit.vercel.app/:470 Uncaught SyntaxError: Unexpected token '<' in : <!DOCT
                 background-color: #1f2937;
                 width: 100%;
                 padding: 1rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                z-index: 40;
-                border-bottom: 2px solid #0d9488; /* teal-600 border */
-            }
-            .navbar-links.active a {
-                padding: 0.75rem;
-                margin: 0.25rem 0;
-                border-radius: 0.375rem;
-                transition: all 0.2s ease;
-            }
-            .navbar-links.active a:hover {
-                background-color: #374151; /* gray-700 */
             }
             .hamburger-menu {
                 display: block;
             }
             .hero {
-                padding-top: 5rem; /* Added more padding to prevent content from being hidden behind navbar */
+                padding-top: 2rem;
                 padding-bottom: 2rem;
             }
             .modal-img {
@@ -107,31 +91,22 @@ ayman-fit.vercel.app/:470 Uncaught SyntaxError: Unexpected token '<' in : <!DOCT
                 display: none;
             }
         }
-        
-        /* Fixed header on scroll */
-        .navbar.scrolled {
-            background-color: rgba(31, 41, 55, 0.98); /* semi-transparent gray-800 */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
     </style>
 </head>
 <body class="antialiased">
     <!-- Navigation -->
     <nav class="navbar bg-gray-800 text-white py-4 fixed top-0 w-full z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold flex items-center">
-                <i class="fas fa-heartbeat mr-2 text-teal-400"></i>
-                <span>نبض اللياقة</span>
-            </a>
-            <button class="hamburger-menu p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 sm:hidden" aria-label="Toggle navigation">
+            <a href="#" class="text-xl font-bold">نبض اللياقة</a>
+            <button class="hamburger-menu text-2xl focus:outline-none sm:hidden" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="navbar-links hidden sm:flex space-x-4 space-x-reverse">
-                <a href="#home" class="px-3 py-2 hover:text-teal-400 transition duration-300">الرئيسية</a>
-                <a href="#workouts" class="px-3 py-2 hover:text-teal-400 transition duration-300">التمارين</a>
-                <a href="#progress" class="px-3 py-2 hover:text-teal-400 transition duration-300">تتبع التقدم</a>
-                <a href="#nutrition" class="px-3 py-2 hover:text-teal-400 transition duration-300">التغذية</a>
-                <a href="#calculator" class="px-3 py-2 hover:text-teal-400 transition duration-300">حاسبة التغذية</a>
+            <div class="navbar-links flex space-x-4 space-x-reverse sm:flex">
+                <a href="#home" class="hover:text-teal-400">الرئيسية</a>
+                <a href="#workouts" class="hover:text-teal-400">التمارين</a>
+                <a href="#progress" class="hover:text-teal-400">تتبع التقدم</a>
+                <a href="#nutrition" class="hover:text-teal-400">التغذية</a>
+                <a href="#calculator" class="hover:text-teal-400">حاسبة التغذية</a>
             </div>
         </div>
     </nav>
@@ -469,47 +444,16 @@ ayman-fit.vercel.app/:470 Uncaught SyntaxError: Unexpected token '<' in : <!DOCT
             }
         };
 
-    <script>
-        // Hamburger Menu with improved interaction
+        // Hamburger Menu
         const hamburger = document.querySelector('.hamburger-menu');
         const navLinks = document.querySelector('.navbar-links');
         const hamburgerIcon = hamburger.querySelector('i');
-        
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburgerIcon.classList.toggle('fa-bars');
             hamburgerIcon.classList.toggle('fa-times');
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburgerIcon.classList.add('fa-bars');
-                hamburgerIcon.classList.remove('fa-times');
-            }
-        });
-        
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburgerIcon.classList.add('fa-bars');
-                    hamburgerIcon.classList.remove('fa-times');
-                }
-            });
-        });
-        
-        // Change navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+
         // Modal Handling
         const modal = document.getElementById('exerciseModal');
         const closeModalBtn = document.getElementById('closeModal');
