@@ -98,7 +98,7 @@
     <nav class="navbar bg-gray-800 text-white py-4 fixed top-0 w-full z-50">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold">نبض اللياقة</a>
-            <button class="hamburger-menu text-2xl focus:outline-none sm:hidden">
+            <button class="hamburger-menu text-2xl focus:outline-none sm:hidden" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-links flex space-x-4 space-x-reverse sm:flex">
@@ -106,6 +106,7 @@
                 <a href="#workouts" class="hover:text-teal-400">التمارين</a>
                 <a href="#progress" class="hover:text-teal-400">تتبع التقدم</a>
                 <a href="#nutrition" class="hover:text-teal-400">التغذية</a>
+                <a href="#calculator" class="hover:text-teal-400">حاسبة التغذية</a>
             </div>
         </div>
     </nav>
@@ -265,6 +266,27 @@
         </div>
     </section>
 
+    <!-- Calculator Section -->
+    <section id="calculator" class="py-12 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-center mb-6">حاسبة البروتين والكربوهيدرات والسعرات</h2>
+            <p class="text-center mb-8 text-sm sm:text-base">أدخل وزنك ومستوى نشاطك للحصول على احتياجاتك اليومية من التغذية.</p>
+            <div class="max-w-md mx-auto bg-gray-700 p-4 sm:p-6 rounded-lg">
+                <form id="calculatorForm" class="space-y-4">
+                    <input type="number" id="weightInputCalc" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base" placeholder="الوزن (كجم)" step="0.1" min="1">
+                    <select id="activityLevel" class="w-full p-2 bg-gray-600 text-white border border-gray-500 rounded text-sm sm:text-base">
+                        <option value="1.2">مستقر (قليل أو بدون نشاط)</option>
+                        <option value="1.375">نشاط خفيف (تمارين خفيفة 1-3 أيام/أسبوع)</option>
+                        <option value="1.55">نشاط معتدل (تمارين معتدلة 3-5 أيام/أسبوع)</option>
+                        <option value="1.725">نشاط عالي (تمارين مكثفة 6-7 أيام/أسبوع)</option>
+                    </select>
+                    <button type="submit" class="w-full bg-teal-600 text-white py-2 rounded hover:bg-teal-700 text-sm sm:text-base">احسب</button>
+                </form>
+                <div id="calculatorResult" class="mt-4 text-sm sm:text-base"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Exercise Modal -->
     <div id="exerciseModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
         <div class="bg-gray-800 text-white rounded-lg p-4 sm:p-6 w-11/12 sm:w-3/4 md:w-1/2 max-h-[85vh] overflow-y-auto">
@@ -292,6 +314,7 @@
                 <a href="#workouts" class="hover:text-teal-400 text-sm">التمارين</a>
                 <a href="#progress" class="hover:text-teal-400 text-sm">تتبع التقدم</a>
                 <a href="#nutrition" class="hover:text-teal-400 text-sm">التغذية</a>
+                <a href="#calculator" class="hover:text-teal-400 text-sm">حاسبة التغذية</a>
             </div>
         </div>
     </footer>
@@ -352,6 +375,7 @@
                 description: 'انحن عند الوركين، اسحب البار نحو الأضلاع السفلية، مع ضغط لوحي الكتف.',
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف الدمبل بذراع واحدة',
+                image: 'https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg',
                 video: 'https://www.youtube.com/watch?v=roCP6wCXPqo'
             },
             'deadlifts': {
@@ -423,8 +447,11 @@
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger-menu');
         const navLinks = document.querySelector('.navbar-links');
+        const hamburgerIcon = hamburger.querySelector('i');
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            hamburgerIcon.classList.toggle('fa-bars');
+            hamburgerIcon.classList.toggle('fa-times');
         });
 
         // Modal Handling
@@ -535,6 +562,42 @@
             localStorage.setItem('progressData', JSON.stringify(progressData));
             renderProgress();
         };
+
+        // Nutrition Calculator
+        const calculatorForm = document.getElementById('calculatorForm');
+        const calculatorResult = document.getElementById('calculatorResult');
+
+        calculatorForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const weight = parseFloat(document.getElementById('weightInputCalc').value);
+            const activityLevel = parseFloat(document.getElementById('activityLevel').value);
+
+            if (!weight || weight <= 0) {
+                calculatorResult.innerHTML = '<p class="text-red-400">يرجى إدخال وزن صالح (كجم).</p>';
+                return;
+            }
+
+            // Protein: 1.8 g/kg (mid-range for muscle building)
+            const protein = (weight * 1.8).toFixed(0);
+
+            // Carbs: 5 g/kg (balanced for energy)
+            const carbs = (weight * 5).toFixed(0);
+
+            // Calories: Mifflin-St Jeor BMR for men (assuming male audience based on plan)
+            // BMR = 10 * weight (kg) + 6.25 * height (cm, assuming avg 175 cm) - 5 * age (assuming avg 30) + 5
+            const bmr = 10 * weight + 6.25 * 175 - 5 * 30 + 5;
+            // TDEE = BMR * activity level
+            const calories = (bmr * activityLevel).toFixed(0);
+
+            calculatorResult.innerHTML = `
+                <div class="bg-gray-600 p-4 rounded-lg">
+                    <p><strong>البروتين اليومي:</strong> ${protein} جم</p>
+                    <p><strong>الكربوهيدرات اليومية:</strong> ${carbs} جم</p>
+                    <p><strong>السعرات الحرارية اليومية:</strong> ${calories} سعرة</p>
+                    <p class="text-sm mt-2">ملاحظة: هذه تقديرات. استشر مختص تغذية لخطة دقيقة.</p>
+                </div>
+            `;
+        });
 
         // Initial Render
         renderProgress();
