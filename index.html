@@ -52,6 +52,8 @@
         .modal-img {
             max-width: 100%;
             height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
         .progress-tracker input, .progress-tracker select {
             width: 100%;
@@ -88,6 +90,9 @@
             .btn {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
+            }
+            .modal-img {
+                max-height: 200px;
             }
         }
     </style>
@@ -140,7 +145,7 @@
                                     </h2>
                                     <div id="push1" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="flat-dumbbell-press">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="flat-dumbbell-press">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +157,7 @@
                                     </h2>
                                     <div id="push2" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="incline-barbell-press">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="incline-barbell-press">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +169,7 @@
                                     </h2>
                                     <div id="push3" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="dumbbell-lateral-raise">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="dumbbell-lateral-raise">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +181,7 @@
                                     </h2>
                                     <div id="push4" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="overhead-tricep-extension">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="overhead-tricep-extension">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +203,7 @@
                                     </h2>
                                     <div id="pull1" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="pull-ups">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="pull-ups">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +215,7 @@
                                     </h2>
                                     <div id="pull2" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="bent-over-dumbbell-row">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="bent-over-dumbbell-row">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +227,7 @@
                                     </h2>
                                     <div id="pull3" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="seated-cable-row">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="seated-cable-row">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +239,7 @@
                                     </h2>
                                     <div id="pull4" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="barbell-curl">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="barbell-curl">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -256,7 +261,7 @@
                                     </h2>
                                     <div id="legs1" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="smith-machine-squats">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="smith-machine-squats">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -268,7 +273,7 @@
                                     </h2>
                                     <div id="legs2" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="leg-extension">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="leg-extension">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +285,7 @@
                                     </h2>
                                     <div id="legs3" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="lying-leg-curl">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="lying-leg-curl">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +297,7 @@
                                     </h2>
                                     <div id="legs4" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="standing-calf-raise">عرض التفاصيل</a>
+                                            <a href="#" class="exercise-link" data-bs-toggle="modal" data-bs-target="#exerciseModal" data-exercise="standing-calf-raise">عرض التفاصيل</a>
                                         </div>
                                     </div>
                                 </div>
@@ -390,6 +395,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <img id="exerciseImage" class="modal-img" src="" alt="Exercise Image">
                     <h6 id="exerciseName"></h6>
                     <p id="exerciseDescription"></p>
                     <p id="exerciseMuscles"></p>
@@ -418,6 +424,7 @@
                 description: 'استلق على مقعد مسطح، امسك دمبل في كل يد عند مستوى الصدر، واضغط للأعلى حتى تمتد الذراعان. أنزل ببطء.',
                 muscles: 'الصدر، الترايسبس، الأكتاف',
                 alternative: 'ضغط البار أو تمارين الضغط',
+                image: 'https://images.unsplash.com/photo-1581009146145-b5ef3b632e0e',
                 video: 'https://www.youtube.com/results?search_query=flat+dumbbell+press+how+to'
             },
             'incline-barbell-press': {
@@ -425,6 +432,7 @@
                 description: 'استلق على مقعد مائل، اضغط البار من الصدر إلى التمدد الكامل. أنزل ببطء.',
                 muscles: 'الصدر العلوي، الترايسبس، الأكتاف',
                 alternative: 'ضغط الدمبل المائل',
+                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b',
                 video: 'https://www.youtube.com/results?search_query=incline+barbell+press+how+to'
             },
             'dumbbell-lateral-raise': {
@@ -432,6 +440,7 @@
                 description: 'قف مع دمبل على الجانبين، ارفع إلى ارتفاع الكتف مع ثني خفيف في المرفقين، ثم أنزل.',
                 muscles: 'الأكتاف',
                 alternative: 'رفع الكابل الجانبي',
+                image: 'https://images.unsplash.com/photo-1517134191118-9d5953334c93',
                 video: 'https://www.youtube.com/results?search_query=dumbbell+lateral+raise+how+to'
             },
             'overhead-tricep-extension': {
@@ -439,6 +448,7 @@
                 description: 'امسك دمبل فوق الرأس بكلتا اليدين، أنزل خلف الرأس، ثم مد الذراعين.',
                 muscles: 'الترايسبس',
                 alternative: 'ضغط الترايسبس بالكابل',
+                image: 'https://images.unsplash.com/photo-1597452485669-2c7b389383ff',
                 video: 'https://www.youtube.com/results?search_query=overhead+tricep+extension+how+to'
             },
             'pull-ups': {
@@ -446,6 +456,7 @@
                 description: 'تعلق على البار، اسحب جسمك حتى تصبح الذقن فوق البار، أنزل ببطء. استخدم شريط أو آلة للمساعدة.',
                 muscles: 'اللاتس، البايسبس، الرومبويد',
                 alternative: 'تجديف مقلوب',
+                image: 'https://images.unsplash.com/photo-1534367507873-d2d3946b973e',
                 video: 'https://www.youtube.com/results?search_query=pull+ups+how+to'
             },
             'bent-over-dumbbell-row': {
@@ -453,6 +464,7 @@
                 description: 'انحن عند الوركين، اسحب الدمبل نحو الوركين، مع ضغط لوحي الكتف. حافظ على استقامة الظهر.',
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف الدمبل بذراع واحدة',
+                image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd',
                 video: 'https://www.youtube.com/results?search_query=bent+over+dumbbell+row+how+to'
             },
             'seated-cable-row': {
@@ -460,6 +472,7 @@
                 description: 'اجلس عند آلة الكابل، اسحب المقبض نحو الأضلاع السفلية، مع ضغط لوحي الكتف.',
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف منحني بالدمبل',
+                image: 'https://images.unsplash.com/photo-1605296867424-35fc25bf7c5e',
                 video: 'https://www.youtube.com/results?search_query=seated+cable+row+how+to'
             },
             'barbell-curl': {
@@ -467,6 +480,7 @@
                 description: 'قف ممسكًا بالبار، اثنِ نحو الصدر، مع إبقاء المرفقين قريبين من الجسم.',
                 muscles: 'البايسبس',
                 alternative: 'ثني الدمبل',
+                image: 'https://images.unsplash.com/photo-1581009137042-c552e485697a',
                 video: 'https://www.youtube.com/results?search_query=barbell+curl+how+to'
             },
             'smith-machine-squats': {
@@ -474,20 +488,23 @@
                 description: 'قف تحت بار آلة سميث، انخفض حتى تصبح الفخذان موازية للأرض، ثم ادفع للأعلى.',
                 muscles: 'الفخذ الأمامي، الأرداف، أوتار الركبة',
                 alternative: 'قرفصاء الكأس',
+                image: 'https://images.unsplash.com/photo-1526406915894-7bcd65f60845',
                 video: 'https://www.youtube.com/results?search_query=smith+machine+squats+how+to'
             },
             'leg-extension': {
                 name: 'تمديد الأرجل',
-                description: 'اجل على آلة تمديد الأرجل، مد الساقين حتى تستقيم، ثم أنزل ببطء.',
+                description: 'اجلس على آلة تمديد الأرجل، مد الساقين حتى تستقيم، ثم أنزل ببطء.',
                 muscles: 'الفخذ الأمامي',
                 alternative: 'قرفصاء بلغاري منفصل',
+                image: 'https://images.unsplash.com/photo-1549576490-b0b4831b60a9',
                 video: 'https://www.youtube.com/results?search_query=leg+extension+how+to'
             },
             'lying-leg-curl': {
                 name: 'ثني الأرجل مستلقيًا',
- description: 'استلق وجهًا للأسفل على آلة ثني الأرجل، اثنِ الكعبين نحو الأرداف، ثم أنزل ببطء.',
+                description: 'استلق وجهًا للأسفل على آلة ثني الأرجل، اثنِ الكعبين نحو الأرداف، ثم أنزل ببطء.',
                 muscles: 'أوتار الركبة',
                 alternative: 'رفع الأرداف والركبة',
+                image: 'https://images.unsplash.com/photo-1519505907962-0d6c88a3eb6e',
                 video: 'https://www.youtube.com/results?search_query=lying+leg+curl+how+to'
             },
             'standing-calf-raise': {
@@ -495,13 +512,14 @@
                 description: 'قف على آلة رفع الساق أو درجة، ارفع الكعبين عاليًا، ثم أنزل ببطء.',
                 muscles: 'الساق',
                 alternative: 'رفع الساق الجالس',
+                image: 'https://images.unsplash.com/photo-1557330359-30b6d36a39eb',
                 video: 'https://www.youtube.com/results?search_query=standing+calf+raise+how+to'
             }
         };
 
         // Modal Population
-        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(link => {
-            link.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('exercise-link')) {
                 e.preventDefault();
                 const exerciseId = e.target.dataset.exercise;
                 const exercise = exercises[exerciseId];
@@ -509,8 +527,9 @@
                 document.getElementById('exerciseDescription').textContent = 'الوصف: ' + exercise.description;
                 document.getElementById('exerciseMuscles').textContent = 'العضلات: ' + exercise.muscles;
                 document.getElementById('exerciseAlternative').textContent = 'البديل: ' + exercise.alternative;
+                document.getElementById('exerciseImage').src = exercise.image;
                 document.getElementById('exerciseVideoLink').href = exercise.video;
-            });
+            }
         });
 
         // Progress Tracker
@@ -539,10 +558,14 @@
             const week = document.getElementById('weekInput').value;
             const weight = document.getElementById('weightInput').value;
             const reps = document.getElementById('repsInput').value;
-            progressData.push({ exercise: exercises[exercise].name, week, weight, reps });
-            localStorage.setItem('progressData', JSON.stringify(progressData));
-            renderProgress();
-            progressForm.reset();
+            if (exercise && week && weight && reps) {
+                progressData.push({ exercise: exercises[exercise].name, week, weight, reps });
+                localStorage.setItem('progressData', JSON.stringify(progressData));
+                renderProgress();
+                progressForm.reset();
+            } else {
+                alert('يرجى ملء جميع الحقول.');
+            }
         });
 
         function deleteEntry(index) {
