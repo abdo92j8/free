@@ -49,6 +49,8 @@
         .hamburger-menu {
             display: none;
         }
+        
+        /* Improved mobile navbar styles */
         @media (max-width: 640px) {
             .navbar-links {
                 display: none;
@@ -62,12 +64,24 @@
                 background-color: #1f2937;
                 width: 100%;
                 padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                z-index: 40;
+                border-bottom: 2px solid #0d9488; /* teal-600 border */
+            }
+            .navbar-links.active a {
+                padding: 0.75rem;
+                margin: 0.25rem 0;
+                border-radius: 0.375rem;
+                transition: all 0.2s ease;
+            }
+            .navbar-links.active a:hover {
+                background-color: #374151; /* gray-700 */
             }
             .hamburger-menu {
                 display: block;
             }
             .hero {
-                padding-top: 2rem;
+                padding-top: 5rem; /* Added more padding to prevent content from being hidden behind navbar */
                 padding-bottom: 2rem;
             }
             .modal-img {
@@ -90,6 +104,12 @@
             .progress-cards {
                 display: none;
             }
+        }
+        
+        /* Fixed header on scroll */
+        .navbar.scrolled {
+            background-color: rgba(31, 41, 55, 0.98); /* semi-transparent gray-800 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
