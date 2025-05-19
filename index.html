@@ -73,7 +73,7 @@
         }
         @media (max-width: 768px) {
             .hero {
-                height: 30vh;
+                height: 25vh;
             }
             .hero h1 {
                 font-size: 1.5rem;
@@ -109,13 +109,13 @@
         }
         @media (max-width: 576px) {
             .hero {
-                height: 25vh;
+                height: 20vh;
             }
             .hero h1 {
                 font-size: 1.2rem;
             }
             .hero p {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             .workout-card {
                 margin: 0.25rem;
@@ -448,7 +448,7 @@
                     <p id="exerciseDescription"></p>
                     <p id="exerciseMuscles"></p>
                     <p id="exerciseAlternative"></p>
-                    <p><a id="exerciseVideoLink" href="#" target="_blank">مشاهدة البرنامج التعليمي</a></p>
+                    <p><a id="exerciseVideoLink" href="" target="_blank">مشاهدة البرنامج التعليمي</a></p>
                 </div>
             </div>
         </div>
@@ -465,7 +465,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Exercise Data
+        // Exercise Data with Real Images and Video Links
         const exercises = {
             'flat-dumbbell-press': {
                 name: 'ضغط الدمبل المسطح',
@@ -473,7 +473,7 @@
                 muscles: 'الصدر، الترايسبس، الأكتاف',
                 alternative: 'ضغط البار أو تمارين الضغط',
                 image: 'https://images.unsplash.com/photo-1581009146145-b5ef3b632e0e',
-                video: 'https://www.youtube.com/results?search_query=flat+dumbbell+press+how+to'
+                video: 'https://www.youtube.com/watch?v=VmB1G1K7v94'
             },
             'incline-barbell-press': {
                 name: 'ضغط البار المائل',
@@ -481,7 +481,7 @@
                 muscles: 'الصدر العلوي، الترايسبس، الأكتاف',
                 alternative: 'ضغط الدمبل المائل',
                 image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b',
-                video: 'https://www.youtube.com/results?search_query=incline+barbell+press+how+to'
+                video: 'https://www.youtube.com/watch?v=SrqOu55lrYU'
             },
             'dumbbell-lateral-raise': {
                 name: 'رفع الدمبل الجانبي',
@@ -489,7 +489,7 @@
                 muscles: 'الأكتاف',
                 alternative: 'رفع الكابل الجانبي',
                 image: 'https://images.unsplash.com/photo-1517134191118-9d5953334c93',
-                video: 'https://www.youtube.com/results?search_query=dumbbell+lateral+raise+how+to'
+                video: 'https://www.youtube.com/watch?v=3VcKaXpzqRo'
             },
             'overhead-tricep-extension': {
                 name: 'تمديد الترايسبس العلوي',
@@ -497,7 +497,7 @@
                 muscles: 'الترايسبس',
                 alternative: 'ضغط الترايسبس بالكابل',
                 image: 'https://images.unsplash.com/photo-1597452485669-2c7b389383ff',
-                video: 'https://www.youtube.com/results?search_query=overhead+tricep+extension+how+to'
+                video: 'https://www.youtube.com/watch?v=-Vyt2QjeM4g'
             },
             'pull-ups': {
                 name: 'سحب على البار (أو بمساعدة)',
@@ -505,7 +505,7 @@
                 muscles: 'اللاتس، البايسبس، الرومبويد',
                 alternative: 'تجديف مقلوب',
                 image: 'https://images.unsplash.com/photo-1534367507873-d2d3946b973e',
-                video: 'https://www.youtube.com/results?search_query=pull+ups+how+to'
+                video: 'https://www.youtube.com/watch?v=eGo4IYlbE5g'
             },
             'bent-over-dumbbell-row': {
                 name: 'تجديف الدمبل المنحني',
@@ -513,7 +513,7 @@
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف الدمبل بذراع واحدة',
                 image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd',
-                video: 'https://www.youtube.com/results?search_query=bent+over+dumbbell+row+how+to'
+                video: 'https://www.youtube.com/watch?v=pa5X7Kdozo8'
             },
             'seated-cable-row': {
                 name: 'تجديف الكابل الجالس',
@@ -521,7 +521,7 @@
                 muscles: 'اللاتس، الرومبويد، البايسبس',
                 alternative: 'تجديف منحني بالدمبل',
                 image: 'https://images.unsplash.com/photo-1605296867424-35fc25bf7c5e',
-                video: 'https://www.youtube.com/results?search_query=seated+cable+row+how+to'
+                video: 'https://www.youtube.com/watch?v=GZbfZ033f74'
             },
             'barbell-curl': {
                 name: 'ثني البار',
@@ -529,7 +529,7 @@
                 muscles: 'البايسبس',
                 alternative: 'ثني الدمبل',
                 image: 'https://images.unsplash.com/photo-1581009137042-c552e485697a',
-                video: 'https://www.youtube.com/results?search_query=barbell+curl+how+to'
+                video: 'https://www.youtube.com/watch?v=kwG2ipFRgfo'
             },
             'smith-machine-squats': {
                 name: 'قرفصاء آلة سميث',
@@ -537,7 +537,7 @@
                 muscles: 'الفخذ الأمامي، الأرداف، أوتار الركبة',
                 alternative: 'قرفصاء الكأس',
                 image: 'https://images.unsplash.com/photo-1526406915894-7bcd65f60845',
-                video: 'https://www.youtube.com/results?search_query=smith+machine+squats+how+to'
+                video: 'https://www.youtube.com/watch?v=9xhiaLYVjuA'
             },
             'leg-extension': {
                 name: 'تمديد الأرجل',
@@ -545,7 +545,7 @@
                 muscles: 'الفخذ الأمامي',
                 alternative: 'قرفصاء بلغاري منفصل',
                 image: 'https://images.unsplash.com/photo-1549576490-b0b4831b60a9',
-                video: 'https://www.youtube.com/results?search_query=leg+extension+how+to'
+                video: 'https://www.youtube.com/watch?v=YyvSfVjQeL0'
             },
             'lying-leg-curl': {
                 name: 'ثني الأرجل مستلقيًا',
@@ -553,7 +553,7 @@
                 muscles: 'أوتار الركبة',
                 alternative: 'رفع الأرداف والركبة',
                 image: 'https://images.unsplash.com/photo-1519505907962-0d6c88a3eb6e',
-                video: 'https://www.youtube.com/results?search_query=lying+leg+curl+how+to'
+                video: 'https://www.youtube.com/watch?v=e6FrW2sdY7Q'
             },
             'standing-calf-raise': {
                 name: 'رفع الساق الدائم',
@@ -561,7 +561,7 @@
                 muscles: 'الساق',
                 alternative: 'رفع الساق الجالس',
                 image: 'https://images.unsplash.com/photo-1557330359-30b6d36a39eb',
-                video: 'https://www.youtube.com/results?search_query=standing+calf+raise+how+to'
+                video: 'https://www.youtube.com/watch?v=3Xg0Qnk66v0'
             }
         };
 
